@@ -114,7 +114,7 @@ Shader "line"
 				#endif
 				float temp_output_43_0 = ( WorldPosition.x / _Scale );
 				float temp_output_42_0 = ( WorldPosition.y / _Scale );
-				float4 lerpResult46 = lerp( tex2D( _TextureSample0, i.ase_texcoord1.xy ) , _LineColor , ( 1.0 - ( ( ( ( 1.0 / ddx( temp_output_43_0 ) ) * frac( temp_output_43_0 ) ) > _width ? 1.0 : 0.0 ) * ( ( ( 1.0 / ddy( temp_output_42_0 ) ) * frac( temp_output_42_0 ) ) > _width ? 1.0 : 0.0 ) ) ));
+				float4 lerpResult46 = lerp( tex2D( _TextureSample0, i.ase_texcoord1.xy ) , _LineColor , ( 1.0 - ( ( ( ( 1.0 / fwidth( temp_output_43_0 ) ) * frac( temp_output_43_0 ) ) > _width ? 1.0 : 0.0 ) * ( ( ( 1.0 / fwidth( temp_output_42_0 ) ) * frac( temp_output_42_0 ) ) > _width ? 1.0 : 0.0 ) ) ));
 				
 				
 				finalColor = lerpResult46;
@@ -151,12 +151,14 @@ Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;0;858.0854,-11.85843;Float;
 Node;AmplifyShaderEditor.OneMinusNode;39;414.3713,368.4025;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.LerpOp;46;706.4203,43.7983;Inherit;False;3;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;FLOAT;0;False;1;COLOR;0
 Node;AmplifyShaderEditor.ColorNode;44;393.4698,85.63368;Inherit;False;Property;_LineColor;LineColor;3;0;Create;True;0;0;0;False;0;False;0,0,0,0;0,0,0,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-WireConnection;6;1;1;0
+Node;AmplifyShaderEditor.FWidthOpNode;47;-523.551,177.6177;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0
+Node;AmplifyShaderEditor.FWidthOpNode;48;-586.7103,430.2569;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0
+WireConnection;6;1;47;0
 WireConnection;12;0;6;0
 WireConnection;12;1;18;0
 WireConnection;18;0;43;0
 WireConnection;1;0;43;0
-WireConnection;24;1;28;0
+WireConnection;24;1;48;0
 WireConnection;25;0;24;0
 WireConnection;25;1;26;0
 WireConnection;28;0;42;0
@@ -177,5 +179,7 @@ WireConnection;39;0;33;0
 WireConnection;46;0;4;0
 WireConnection;46;1;44;0
 WireConnection;46;2;39;0
+WireConnection;47;0;43;0
+WireConnection;48;0;42;0
 ASEEND*/
-//CHKSM=E50F1B51526DDB7681867BD6BEECFC35D39568F6
+//CHKSM=42A038F31342B368A400857465A966E0B271E417
