@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: line
-  m_Shader: {fileID: 4800000, guid: ac890747b0d8aa94fa79022163b9fc5d, type: 3}
+  m_Name: lineAA
+  m_Shader: {fileID: 4800000, guid: 3632cc1babd136f4ba2f511e88356730, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -29,9 +29,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Scale: 2.79
-    - _Size: 2.128186
+    - _GridSize: 5
+    - _LineWidth: 1
+    - _Scale: 1
+    - _Size: 5
     - _width: 1
     m_Colors:
+    - _GridSize: {r: 0, g: 0, b: 0, a: 0}
     - _LineColor: {r: 0.5566038, g: 0.21791562, b: 0.21791562, a: 1}
   m_BuildTextureStacks: []
